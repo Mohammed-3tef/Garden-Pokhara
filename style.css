@@ -443,7 +443,7 @@ footer a:hover {color: green;}
 /* =======>> Computer | | Laptop */
 @media only screen and (max-width: 600px){
     header {
-        padding: 0.75rem 0.25rem;
+        padding: 0.75rem 0rem 0.75rem 0.75rem;
         .logo {
             p {font-size: 1rem;}
         }
@@ -470,7 +470,7 @@ footer a:hover {color: green;}
 /* =======>> Phone */
 @media (max-device-width: 500px){
     header {
-        padding: 0.75rem 0.25rem;
+        padding: 0.75rem 0rem 0.75rem 0.75rem;
         .logo {
             p {font-size: 1rem;}
         }
