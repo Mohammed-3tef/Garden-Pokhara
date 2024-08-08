@@ -412,6 +412,7 @@ footer a:hover {color: green;}
     }
     .welcome {
         flex-direction: column;
+        gap: 3.5rem;
         .welcomeDetails {margin: 0rem auto;}
         .welcomeForm {
             margin: 0rem auto;
