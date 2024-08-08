@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+header {padding: 1.5rem 5rem;}
+section {padding: 3.5rem 5rem;}
+footer {padding: 2.5rem 5rem;}
+
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.sectionMarginTitle {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 32px;
+    color: rgba(104, 115, 127, 1);
+}
+
+.seeAll {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: rgba(139, 177, 120, 1);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px, 24px, 8px, 24px;
+    width: 140px;
+    height: 45px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+   
+.seeAll span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: left;        
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+   
+.seeAll span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+   
+.seeAll:hover span {padding-right: 15px;}
+   
+.seeAll:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* =================================<=======>> Header <<======================================== */
+
+header {
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    justify-content: space-between;
+    .logo {
+        display: flex;
+        align-items: center;
+        p {
+            padding-left: 0.5rem;
+            font-weight: 400;
+            span {font-weight: 700;}
+        }
+    }
+    
+    .headerDetails {
+        display: flex;
+        gap: 2rem;
+        img {
+            cursor: pointer;
+            width: 35%;
+        }
+    }
+}
+
+/* =================================<=======>> Home <<======================================== */
+
+.HomeSection{
+    max-height: 100vh;
+    gap: 5rem;
+    display: flex;
+    align-items: center;
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        img {
+            max-width: 65%;
+        }
+    }
+    a {
+        color: black;
+        text-decoration: none;
+        transition: 350ms;
+    }
+    .homeDetails {
+        .homeTitle{
+            font-size: 2.7rem;
+            font-weight: 700;
+            color: #9DB97F;
+        }
+        .homeMarginTitle {
+            padding: 1.25rem 0rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #68737F;
+        }
+        .homeBtn {
+            display: flex;
+            gap: 1.5rem;
+            .nd {
+                color: black;
+                background-color: transparent;
+                border: 2px solid black;
+                width: 175px;
+            }
+        }
+    }
+}
+
+/* ========================================>> Our Services <<======================================== */
+
+.services {
+    text-align: center;
+    padding: 2rem 0rem;
+    .sectionTitle {padding: 1.5rem 0rem 2.5rem;}
+    .serviceCards {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 3rem 0rem;
+        background-color: rgba(255, 253, 248, 1);
+        gap: 3rem;
+        .serviceCard {
+            .serviceCardName {padding: 0.75rem 0rem; font-weight: 500;}
+            .serviceCardDetails {color: rgba(104, 115, 127, 1); font-size: 0.85rem;}
+            img {
+                background-color: rgba(233, 249, 225, 1);
+                border-radius: 10px;
+                padding: 1rem;
+                max-width: 100%;
+                max-height: 100%;
+                transition: 350ms;
+            }
+        }
+    }
+}
+
+.serviceCard img:hover {box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;}
+
+/* ========================================>> Explore from Categories <<======================================== */
+
+.exploreCategories {
+    display: flex;
+    gap: 5rem;
+    .categories{
+        align-content: center;
+        .sectionMarginTitle {padding: 2rem 0rem;}
+    }
+    .categoriesImages {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        .categoriesCard {
+            position: relative;
+            max-width: 400px;
+            max-height: 400px;
+            border-radius: 10px;
+            transition: 400ms;
+            p{
+                font-weight: 700;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                /* color: white; */
+            }
+            img {
+                max-width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.categoriesCard:hover {box-shadow: rgba(99, 99, 99, 0.2) 0.5px 2px 8px 0.5px;}
+
+/* ========================================>> Garden Pokhara welcomes you!! <<======================================== */
+
+.welcome {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(Images/WelcomeImage.svg);
+    background-attachment: fixed;
+    background-size: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    gap: 5rem;
+    .welcomeDetails {
+        padding: 3.5rem 0rem;
+        .sectionTitle {color: white;}
+        .sectionMarginTitle {padding: 1.5rem 0rem; color: white; font-weight: 350;}
+    }
+    .welcomeForm {
+        min-width: 35%;
+    }
+    .enterEmail {
+        width: 100%;
+        height: 45px;
+        padding: 12px;
+        border-radius: 5px;
+        border: 1.5px solid lightgrey;
+        outline: none;
+        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: 0px 0px 20px -18px;
+    }
+    .enterEmail:hover {
+        border: 2px solid lightgrey;
+        box-shadow: 0px 0px 20px -17px;
+    }
+      
+    .enterEmail:active {
+        transform: scale(0.95);
+    }
+      
+    .enterEmail:focus {
+        border: 2px solid grey;
+    }
+}
+
+/* ========================================>> Upcoming Plants <<======================================== */
+
+.upcoming {
+    .sectionTitle {text-align: center;}
+    .upcomingCards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 3rem 0rem;
+        gap: 3rem;
+    }
+    .upcomingPlant {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: center;
+        a {
+            color: black;
+            text-decoration: none;
+            transition: 350ms;
+            font-weight: 700;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    }
+}
+
+.upcomingPlant a:hover {color: green;}
+
+/* ========================================>> Footer <<======================================== */
+
+footer {
+    padding-top: 3.75rem;
+    a {
+        color: black;
+        text-decoration: none;
+        transition: 350ms;
+    }
+}
+
+.footer1 {
+    display: flex;
+    justify-content: space-between;
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .contactUs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .contactDetails p{padding-bottom: 0.75rem;}
+    }
+    .location {
+        min-width: 45%;
+        min-height: 40%;
+        align-content: center;
+    }
+    iframe {
+        border-radius: 10px; 
+        min-width: 100%;
+        min-height: 100%;
+        border: 0;
+    }
+}
+
+.footer2 {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    .social {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+}
+
+footer a:hover {color: green;}
+
+/* ========================================>> Responsive <<======================================== */
+
+/* ==============>> Tablet */
+
+/* =======>> Computer | | Laptop */
+@media only screen and (max-width: 1024px){
+    * {text-align: center;}
+    section, footer {padding-left: 1.75rem; padding-right: 1.75rem;}
+    header {
+        padding: 0.75rem 3.5rem;
+        .logo p{font-size: 1rem;}
+    }
+    .HomeSection {
+        padding-top: 6rem;
+        gap: 3rem;
+        flex-direction: column;
+        max-height: fit-content;
+        .mySwiper {max-width: 100%;}
+        .homeDetails {
+            .homeBtn {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    .exploreCategories {
+        flex-direction: column;
+    }
+    .welcome {
+        flex-direction: column;
+        .welcomeDetails {margin: 0rem auto;}
+        .welcomeForm {
+            margin: 0rem auto;
+        }
+    }
+    
+    .footer1 {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        .contactDetails {
+            display: flex;
+            justify-content: space-around;
+        }
+        .links {
+            display: flex; 
+            justify-content: space-between; 
+            flex-direction: row; 
+            gap: 0.5rem;
+        }
+    }
+    .footer2 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* =======>> Tablet */
+@media (max-device-width: 800px){
+    * {text-align: center;}
+    section, footer {padding-left: 1.75rem; padding-right: 1.75rem;}
+    header {
+        padding: 0.75rem 3.5rem;
+        .logo p{font-size: 1rem;}
+    }
+    .HomeSection {
+        padding-top: 6rem;
+        gap: 3rem;
+        flex-direction: column;
+        max-height: fit-content;
+        .mySwiper {max-width: 100%;}
+        .homeDetails {
+            .homeBtn {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    .exploreCategories {
+        flex-direction: column;
+    }
+    .welcome {
+        flex-direction: column;
+        .welcomeDetails {margin: 0rem auto;}
+        .welcomeForm {
+            margin: 0rem auto;
+        }
+    }
+    
+    .footer1 {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        .contactDetails {
+            display: flex;
+            justify-content: space-around;
+        }
+        .links {
+            display: flex; 
+            justify-content: space-between; 
+            flex-direction: row; 
+            gap: 0.5rem;
+        }
+    }
+    .footer2 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* ==============>> Mobile */
+/* =======>> Computer | | Laptop */
+@media only screen and (max-width: 600px){
+    header {
+        padding: 0.75rem 0.25rem;
+        .logo {
+            p {font-size: 1rem;}
+        }
+        .headerDetails {
+            img {width: 20%;}
+        }
+    }
+    .footer1 {
+        .links{flex-direction: column; }
+        .contactDetails {
+            display: flex;
+            flex-direction: column;
+        }
+        iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .footer2 {
+        .CR {font-size: smaller;}
+    }
+}
+
+/* =======>> Phone */
+@media (max-device-width: 500px){
+    header {
+        padding: 0.75rem 0.25rem;
+        .logo {
+            p {font-size: 1rem;}
+        }
+        .headerDetails {
+            img {width: 20%;}
+        }
+    }
+    .footer1 {
+        .links {flex-direction: column;}
+        .contactDetails {
+            display: flex;
+            flex-direction: column;
+        }
+        iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .footer2 {
+        .CR {font-size: smaller;}
+    }
+}
