@@ -8,7 +8,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-header {padding: 1.5rem 5rem;}
+header {padding: 1.25rem 5rem;}
 section, footer {
     max-width: 1350px;
     margin: 0rem auto;
@@ -74,10 +74,11 @@ section, footer {
 
 header {
     display: flex;
-    position: absolute;
-    z-index: 1000;
+    position: fixed;
+    z-index: 1000;    
     width: 100%;
     justify-content: space-between;
+    transition: 600ms;
     .logo {
         display: flex;
         align-items: center;
@@ -96,6 +97,25 @@ header {
             width: 35%;
         }
     }
+}
+
+header.sticky {
+    padding: 1.5rem 5.75rem;
+    background-color: rgba(255, 253, 248, 1);
+}
+
+@keyframes growreading {
+    to {width: 100%;}
+}
+.reading {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: #9DB97F;
+    animation: growreading linear;
+    animation-timeline: scroll(root);
 }
 
 /* =================================<=======>> Home <<======================================== */
