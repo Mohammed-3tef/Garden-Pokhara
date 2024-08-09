@@ -526,6 +526,10 @@ footer a:hover {color: green;}
             img {width: 20%;}
         }
     }
+    header.sticky {
+        padding: 1.25rem 0.75rem;
+        background-color: rgba(255, 253, 248, 1);
+    }
     .footer1 {
         .links {flex-direction: column;}
         .contactDetails {
