@@ -10,9 +10,9 @@
 
 header {padding: 1.5rem 5rem;}
 section, footer {
-    max-width: 1280px;
+    max-width: 1350px;
     margin: 0rem auto;
-    padding: 3.5rem 0rem;
+    padding: 3.5rem;
 }
 
 .sectionTitle {
@@ -145,15 +145,21 @@ header {
 
 .services {
     text-align: center;
+    margin: 0rem;
+    max-width: 100%;
     padding: 2rem 0rem;
     .sectionTitle {padding: 1.5rem 0rem 2.5rem;}
     .serviceCards {
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
         padding: 3rem 0rem;
         background-color: rgba(255, 253, 248, 1);
-        gap: 3rem;
+        .cards {
+            max-width: 1280px;
+            margin: 0rem auto;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
         .serviceCard {
             .serviceCardName {padding: 0.75rem 0rem; font-weight: 500;}
             .serviceCardDetails {color: rgba(104, 115, 127, 1); font-size: 0.85rem;}
@@ -220,17 +226,21 @@ header {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(Images/WelcomeImage.svg);
     background-attachment: fixed;
     background-size: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
-    gap: 5rem;
-    .welcomeDetails {
-        padding: 2.5rem 0rem 3.5rem;
-        .sectionTitle {color: white;}
-        .sectionMarginTitle {padding: 1.5rem 0rem; color: white; font-weight: 350;}
-    }
-    .welcomeForm {
-        min-width: 35%;
+    max-width: 100%;
+    .welcomeInfo {
+        max-width: 1280px;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin: 0rem auto;
+        gap: 5rem;
+        display: flex;
+        .welcomeDetails {
+            padding: 2.5rem 0rem 3.5rem;
+            .sectionTitle {color: white;}
+            .sectionMarginTitle {padding: 1.5rem 0rem; color: white; font-weight: 350;}
+        }
+        .welcomeForm {min-width: 35%;}
     }
     .enterEmail {
         width: 100%;
@@ -373,10 +383,13 @@ footer a:hover {color: green;}
     }
     .welcome {
         flex-direction: column;
-        .welcomeDetails {margin: 0rem auto;}
-        .welcomeForm {
-            margin: 0rem auto;
-            min-width: 90%;
+        .welcomeInfo {
+            flex-direction: column;
+            .welcomeDetails {margin: 0rem auto;}
+            .welcomeForm {
+                margin: 0rem auto;
+                min-width: 90%;
+            }
         }
     }
     
