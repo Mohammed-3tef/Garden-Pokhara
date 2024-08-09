@@ -441,6 +441,10 @@ footer a:hover {color: green;}
         padding: 0.75rem 3.5rem;
         .logo p{font-size: 1rem;}
     }
+    header.sticky {
+        padding: 1.25rem 4.75rem;
+        background-color: rgba(255, 253, 248, 1);
+    }
     .HomeSection {
         padding-top: 6rem;
         gap: 3rem;
@@ -498,6 +502,10 @@ footer a:hover {color: green;}
         .headerDetails {
             img {width: 20%;}
         }
+    }
+    header.sticky {
+        padding: 1.25rem 1.75rem;
+        background-color: rgba(255, 253, 248, 1);
     }
     .footer1 {
         .links{flex-direction: column; }
