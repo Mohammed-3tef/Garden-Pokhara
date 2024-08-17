@@ -1,670 +1,555 @@
-@import url('https://fonts.googleapis.com/css2?family=Ga+Maamli&family=Nothing+You+Could+Do&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,545;1,545&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     padding: 0;
     margin: 0;
-    text-align: center;
-    font-family: "Ga Maamli", sans-serif;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
 }
 
-section {padding: 6rem;}
-
-.maxWidth {
+header {padding: 1.25rem 5rem;}
+section, footer {
     max-width: 1350px;
     margin: 0rem auto;
+    padding: 3.5rem;
 }
 
-.sectionTitle {font-size: 3rem; color: white;}
+.sectionTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
 
+.sectionMarginTitle {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 32px;
+    color: rgba(104, 115, 127, 1);
+}
+
+.seeAll {
+    display: inline-block;
+    border-radius: 5px;
+    background-color: rgba(139, 177, 120, 1);
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 8px, 24px, 8px, 24px;
+    width: 140px;
+    height: 45px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+   
+.seeAll span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 32px;
+    text-align: left;        
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+   
+.seeAll span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+   
+.seeAll:hover span {padding-right: 15px;}
+   
+.seeAll:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* =================================<=======>> Header <<======================================== */
+
+header {
+    display: flex;
+    position: fixed;
+    z-index: 1000;    
+    width: 100%;
+    justify-content: space-between;
+    transition: 600ms;
+    .logo {
+        display: flex;
+        align-items: center;
+        p {
+            padding-left: 0.5rem;
+            font-weight: 400;
+            span {font-weight: 700;}
+        }
+    }
+    
+    .headerDetails {
+        display: flex;
+        gap: 2rem;
+        img {
+            cursor: pointer;
+            width: 35%;
+        }
+    }
+}
+
+header.sticky {
+    padding: 1.5rem 5.75rem;
+    background-color: rgba(255, 253, 248, 1);
+}
+
+@keyframes growreading {
+    to {width: 100%;}
+}
 .reading {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 0;
     height: 4px;
-    background-color: #97BEA4;
+    background-color: #9DB97F;
     animation: growreading linear;
     animation-timeline: scroll(root);
 }
-@keyframes growreading {
-    to {width: 100%;}
-}
 
-/* ====================>> Scroll Bar */
+/* =================================<=======>> Home <<======================================== */
 
-#scrollbar::-webkit-scrollbar {
-    background-color: black;
-    width: 10px;
-    border-radius: 5px 0px 0px 5px; 
-}
-  
-#scrollbar::-webkit-scrollbar-track {
-    border-radius: 10px;
-    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
-}
-  
-#scrollbar::-webkit-scrollbar-thumb {
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, rgb(227, 242, 255)), color-stop(1, #97BEA4));
-    border-radius: 10px;
-}
-
-/* ==============================>> Scroll Button */
-
-.scrollBtn {
-  justify-content: center;
-  align-items: center;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  top: 85%;
-  left: 90%;
-  border: none;
-  display: none;
-  outline: none;
-  color: #fff;
-  background: #111;
-  cursor: pointer;
-  position: fixed;
-  z-index: 0;
-}
-
-.scrollBtn:before {
-  content: '';
-  background: linear-gradient(45deg, #00aeff, #ff0000, #ff7300, #fffb00, #002bff, #7a00ff);
-  position: absolute;
-  top: -2px;
-  left:-2px;
-  background-size: 400%;
-  z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  animation: glowing 20s linear infinite;
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
-  border-radius: 50%;
-}
-
-.scrollBtn:active {color: #000}
-
-.scrollBtn:active:after {background: linear-gradient(45deg, #617a6e, rgb(212, 255, 234));}
-
-.scrollBtn:hover:before {opacity: 1;}
-
-.scrollBtn:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #559076;
-  left: 0;
-  top: 0;
-  border-radius: 50%;
-}
-
-@keyframes glowing {
-  0% { background-position: 0 0; }
-  50% { background-position: 400% 0; }
-  100% { background-position: 0 0; }
-}
-
-/* =====================================>> Header <<===================================== */
-
-header {
-    padding: 0.75rem 3rem;
+.HomeSection{
+    max-height: 100vh;
+    gap: 5rem;
     display: flex;
-    justify-content: space-between;
+    padding-top: 1rem;
     align-items: center;
-    width: 100%;
-    position: fixed;
-    z-index: 1000;
-    transition: 600ms;
-    .nav1 {
+    .swiper-slide {
         display: flex;
-        gap: 5rem;
-        a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: 600ms;
-        }
+        justify-content: center;
+        img {max-width: 70%;}
     }
-    span {display: none; cursor: pointer; color: white;}
-}
-
-header.sticky {
-    padding: 1rem 4rem;
-    background-color: #030512;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    right: 0;
-    background-color: #120309;
-    overflow-x: hidden;
-    transition: 0.55s;
-    align-content: center;
     a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 27.5px;
-      color: white;
-      display: block;
-      transition: 0.35s;
+        color: black;
+        text-decoration: none;
+        transition: 350ms;
     }
-    .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 50px;
-      margin-left: 50px;
+    .homeDetails {
+        .homeTitle{
+            font-size: 2.7rem;
+            font-weight: 700;
+            color: #9DB97F;
+        }
+        .homeMarginTitle {
+            padding: 1.25rem 0rem;
+            font-size: 1rem;
+            font-weight: 400;
+            color: #68737F;
+        }
+        .homeBtn {
+            display: flex;
+            gap: 1.5rem;
+            .nd {
+                color: black;
+                background-color: transparent;
+                border: 2px solid black;
+                width: 175px;
+            }
+        }
     }
 }
 
-.logo {
-    font-size: 2.45rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: white;
+/* ========================================>> Our Services <<======================================== */
+
+.services {
+    text-align: center;
+    margin: 0rem;
+    max-width: 100%;
+    padding: 2rem 0rem;
+    .sectionTitle {padding: 1.5rem 0rem 2.5rem;}
+    .serviceCards {
+        padding: 3rem 0rem;
+        background-color: rgba(255, 253, 248, 1);
+        .cards {
+            max-width: 1280px;
+            margin: 0rem auto;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        .serviceCard {
+            .serviceCardName {padding: 0.75rem 0rem; font-weight: 500;}
+            .serviceCardDetails {color: rgba(104, 115, 127, 1); font-size: 0.85rem;}
+            img {
+                background-color: rgba(233, 249, 225, 1);
+                border-radius: 10px;
+                padding: 1rem;
+                max-width: 100%;
+                max-height: 100%;
+                transition: 350ms;
+            }
+        }
+    }
 }
 
-.sidenav a:hover ,.nav1 a:hover {color: #97BEA4;}
+.serviceCard img:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    scale: 1.05;
+}
 
-/* =====================================>> Hero Section <<===================================== */
+/* ========================================>> Explore from Categories <<======================================== */
 
-.Home {
-    position: relative;
-    padding: 3rem 0rem;
-    height: 100vh;
-    .mainPage {
-        position: relative;
-        z-index: 4;
-        height: 100vh;
+.exploreCategories {
+    display: flex;
+    gap: 5rem;
+    .categories{
         align-content: center;
-        color: aliceblue;
+        .sectionMarginTitle {padding: 2rem 0rem;}
     }
-    .mainTitle {
-        font-size: 5rem;
-    }
-    .marginTitle {
-        font-size: 3.35rem;
-        word-spacing: 0.8rem;
-    }
-    .HomeDetails{
-        padding-top: 12.5rem;
-        display: flex;
-        justify-content: space-evenly;
-        p {font-size: 1.75rem;}
-    }
-    .homeSlider {
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-        .homeSlide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            animation: slider 18.5s infinite;
+    .categoriesImages {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        .categoriesCard {
+            position: relative;
+            max-width: 400px;
+            max-height: 400px;
+            border-radius: 10px;
+            transition: 400ms;
+            p{
+                font-weight: 700;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                /* color: white; */
+            }
+            img {
+                max-width: 100%;
+                border-radius: 10px;
+            }
         }
     }
-    .homeSlider .homeSlide:nth-child(1) {
-        background-image: url('https://images.pexels.com/photos/1907228/pexels-photo-1907228.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-        filter: brightness(55%);
-        animation-delay: -0;
-    }
-    .homeSlider .homeSlide:nth-child(2) {
-        background-image: url('https://images.pexels.com/photos/3054690/pexels-photo-3054690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-        filter: brightness(55%);
-        animation-delay: -3.7s;
-    }
-    .homeSlider .homeSlide:nth-child(3) {
-        background-image: url('https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-        filter: brightness(55%);
-        animation-delay: -7.4s;
-    }
-    .homeSlider .homeSlide:nth-child(4) {
-        background-image: url('https://images.pexels.com/photos/218769/pexels-photo-218769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-        filter: brightness(55%);
-        animation-delay: -11.1s;
-    }
-    .homeSlider .homeSlide:nth-child(5) {
-        background-image: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-        filter: brightness(55%);
-        animation-delay: -14.8s;
-    }
 }
 
-@keyframes slider {
-    0%, 11%, 100% {
-      opacity: 1;
-      animation-timing-function: ease;
-      z-index: 0;
-    }
-    20% {
-      opacity: 0;
-      animation-timing-function: step-end;
-      z-index: 0;
-    }
-    91% {
-      opacity: 1;
-      animation-timing-function: step-end;
-      z-index: -1;
-    }
+.categoriesCard:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0.5px 2px 8px 0.5px;
+    scale: 1.025;    
 }
 
-/* =====================================>> About <<===================================== */
+/* ========================================>> Garden Pokhara welcomes you!! <<======================================== */
 
-.About {
-    padding-bottom: 0rem;
-    color: white;
-    background-color: #0d1013;
-}
-
-.aboutDiv1 {
-    padding-top: 4rem;
-    p {
-        padding-top: 3.25rem;
-        strong {
-            font-size: 2rem;
-            font-family: "Nothing You Could Do", cursive;
-        }
-    }
-    .YiliImg {
-        max-width: 45%;
-        max-height: 45%;
-        border-radius: 2rem;
-        transition: 450ms;
-    }
-}
-
-.aboutDetails {
-    padding-top: 2.5rem;
-    strong{
-        font-size: 2rem;
-        font-family: "Nothing You Could Do", cursive;
-    }
-}
-
-.YiliImg:hover {
-    scale: 1.02;
-    filter: drop-shadow(0 0 1.5rem white);
-}
-
-
-/* =====================================>> Menu <<===================================== */
-
-.Menu { 
-    background-color: #0d1013;
-    padding: 6.25rem 3rem;
-}
-
-.meals {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    padding-top: 2.5rem;
-}
-
-/* =====================================>> FeedBack <<===================================== */
-
-.FeedBack {
-    background-image: url('https://png.pngtree.com/background/20211216/original/pngtree-dining-shop-at-night-decorated-with-lanterns-at-the-entrance-of-picture-image_1534993.jpg');
+.welcome {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(Images/WelcomeImage.svg);
     background-attachment: fixed;
-    background-size: 100% 100%;
-}
-
-.slider {
-    padding: 5rem 0rem;
-    position: relative;
-    align-content: center;
-    width: 100%;
-    overflow: hidden;
-    .slides {
+    background-size: 100%;
+    max-width: 100%;
+    .welcomeInfo {
+        max-width: 1280px;
         display: flex;
-        transition: transform 0.75s ease-in-out;
+        justify-content: space-between;
+        align-items: baseline;
+        margin: 0rem auto;
+        gap: 5rem;
+        display: flex;
+        .welcomeDetails {
+            padding: 2.5rem 0rem 3.5rem;
+            .sectionTitle {color: white;}
+            .sectionMarginTitle {padding: 1.5rem 0rem; color: white; font-weight: 350;}
+        }
+        .welcomeForm {min-width: 35%;}
     }
-    .slide {
-        margin: 0rem 1.25rem;
-        padding: 2.5rem 2rem;
-        align-content: space-around;
-        min-width: fit-content;
-        min-height: 100%;
-        box-sizing: border-box;
-        border-radius: 1.75rem;
-        background-image: linear-gradient(to bottom right, #70BB9A, white);
-        transition: 450ms;
+    .enterEmail {
+        width: 100%;
+        height: 45px;
+        padding: 12px;
+        border-radius: 5px;
+        border: 1.5px solid lightgrey;
+        outline: none;
+        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+        box-shadow: 0px 0px 20px -18px;
     }
-    .clientName {
-        padding-top: 3.75rem;
-        padding-bottom: 1.5rem;
-        font-size: 2.5rem;
+    .enterEmail:hover {
+        border: 2px solid lightgrey;
+        box-shadow: 0px 0px 20px -17px;
     }
-    .clientReview strong{
-        font-family: "Nothing You Could Do", cursive;;
-        font-size: 2.8rem;
+      
+    .enterEmail:active {
+        transform: scale(0.95);
     }
-}
-
-.sliderBtn {
-    display: flex;
-    justify-content: space-evenly;
-    border: none;
-    button {
-        font-size: 2.5rem;
-        text-align: center;
-        width: 3.5rem;
-        height: 3.5rem;
-        border-radius: 50%;
-        cursor: pointer;
-        background-color: #70BB9A;
+      
+    .enterEmail:focus {
+        border: 2px solid grey;
     }
 }
 
-.slide:hover {scale:1.005; filter: drop-shadow(0 0 0.75rem white);}
+/* ========================================>> Upcoming Plants <<======================================== */
 
-/* =====================================>> Contact Us <<===================================== */
-
-.Contact { background-color: #0d1013;}
-.Contact form {
-    padding-top: 3rem;
+.upcoming {
+    .sectionTitle {text-align: center;}
+    .upcomingCards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 3rem 0rem;
+        gap: 3rem;
+    }
+    .upcomingPlant {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: center;
+        a {
+            color: black;
+            text-decoration: none;
+            transition: 350ms;
+            font-weight: 700;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            transition: 350ms;
+        }
+    }
 }
 
-.form-control {
-  position: relative;
-  margin: auto;
-  width: 65%;
-  padding-bottom: 2rem;
+.upcomingPlant a:hover {color: green;}
+.upcomingPlant img:hover {
+    filter: drop-shadow(0.25px 0.25px 15px gray);
+    scale: 1.01;
 }
 
-.form-control input, textarea {
-    text-align: left;
-  background-color: transparent;
-  border: 0;
-  border-bottom: 2px white solid;
-  display: block;
-  width: 100%;
-  padding: 15px 0;
-  font-size: 18px;
-  color: white;
-}
-
-textarea {resize: none;}
-
-.form-control input:focus, textarea:focus,
-.form-control input:valid, textarea:valid {
-  outline: 0;
-  border-bottom-color: white;
-}
-
-.form-control label {
-  position: absolute;
-  top: 15px;
-  left: 0;
-  pointer-events: none;
-}
-
-.form-control label span {
-  display: inline-block;
-  font-size: 18px;
-  min-width: 5px;
-  color: white;
-  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.form-control input:focus+label span, textarea:focus+label span,
-.form-control input:valid+label span, textarea:valid+label span {
-  color: #70BB9A;
-  transform: translateY(-30px);
-}
-
-.primary-button {
-  width: 8em;
-  position: relative;
-  height: 2.75em;
-  border: 3px ridge #70BB9A;
-  outline: none;
-  background-color: transparent;
-  color: white;
-  transition: 1s;
-  border-radius: 0.3em;
-  font-size: 1.75rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.primary-button::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 3%;
-  width: 95%;
-  height: 40%;
-  background-color: #0d1013;
-  transition: 0.5s;
-  transform-origin: center;
-}
-
-.primary-button::before {
-  content: "";
-  transform-origin: center;
-  position: absolute;
-  top: 80%;
-  left: 3%;
-  width: 95%;
-  height: 40%;
-  background-color: #0d1013;
-  transition: 0.5s;
-}
-
-.primary-button:hover::before, .primary-button:hover::after {
-  transform: scale(0)
-}
-
-.primary-button:hover {
-  box-shadow: inset 0px 0px 25px #70BB9A;
-}
-
-/* =====================================>> Footer <<===================================== */
+/* ========================================>> Footer <<======================================== */
 
 footer {
-    background-image: url('https://png.pngtree.com/background/20230516/original/pngtree-small-dark-room-filled-with-old-furniture-and-oriental-lanterns-picture-image_2601802.jpg');
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    color: white;
-}
-
-.footerTitle {font-size: 3.5rem; padding-top: 3rem;}
-.follow {padding:2rem 0rem; font-size: 2.5rem;}
-.social {
-    padding-bottom: 3.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
+    padding-top: 3.75rem;
     a {
+        color: black;
         text-decoration: none;
-        color: white;
-        font-size: 1.2rem;
-        transition: 450ms;
+        transition: 350ms;
     }
 }
 
-.email, .phone, .address {font-size: 1.5rem;}
-.copyRight {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1.25rem;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
-    word-spacing: 0.25rem;
+.footer1 {
+    display: flex;
+    justify-content: space-between;
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .contactUs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .contactDetails p{padding-bottom: 0.75rem;}
+    }
+    .location {
+        min-width: 45%;
+        min-height: 40%;
+        align-content: center;
+    }
+    iframe {
+        border-radius: 10px; 
+        min-width: 100%;
+        min-height: 100%;
+        border: 0;
+    }
 }
 
-.social a:hover {color: #97BEA4;}
+.footer2 {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    .social {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+    }
+}
 
-/* =====================================>> Responsive Website <<===================================== */
+footer a:hover {color: green;}
 
-/* ===========================>> Tablet */
+/* ========================================>> Responsive <<======================================== */
 
-@media only screen and (max-width: 1000px){
+/* ==============>> Tablet */
+
+/* =======>> Computer | | Laptop */
+@media only screen and (max-width: 1024px){
+    * {text-align: center;}
+    section, footer {padding-left: 1.75rem; padding-right: 1.75rem;}
     header {
-        span {display: block; font-size: xx-large;}
-        .nav1 {display: none;}
+        padding: 0.75rem 3.5rem;
+        .logo p{font-size: 1rem;}
     }
-    .Home {
-        .mainTitle {font-size: 4.25rem;}
-        .marginTitle {font-size: 3.25rem;}
-        .HomeDetails p{font-size: 2.25rem;}
+    .HomeSection {
+        padding-top: 6rem;
+        gap: 3rem;
+        flex-direction: column;
+        max-height: fit-content;
+        .mySwiper {max-width: 100%;}
+        .homeDetails {
+            .homeBtn {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    .exploreCategories {
+        flex-direction: column;
+    }
+    .welcome {
+        flex-direction: column;
+        .welcomeInfo {
+            flex-direction: column;
+            .welcomeDetails {margin: 0rem auto;}
+            .welcomeForm {
+                margin: 0rem auto;
+                min-width: 90%;
+            }
+        }
     }
     
-}
-
-@media (max-device-width: 768px){
-    header {
-        span {display: block; font-size: xx-large;}
-        .nav1 {display: none;}
-    }
-    .About, .Menu, .FeedBack, .Contact {padding: 6.25rem 3.25rem;}
-    .Menu {padding: 6.25rem 2.25rem;}
-    .scrollBtn {
-        top: 85%;
-        left: 85%;
-    }
-}
-
-/* ===========================>> Mobile */
-
-@media only screen and (max-width: 700px){
-    header {
-        span {font-size: x-large;}
-        .logo {font-size: 2rem;}
-    }
-    
-    header.sticky {
-        padding: 1rem 3rem;
-        background-color: #030512;
-    }
-    
-    .Home {
-        .mainTitle {font-size: 3.25rem;}
-        .marginTitle {font-size: 2.25rem;}
-        .HomeDetails p{font-size: 1.25rem;}
-    }
-    .About {
-        padding: 2.5rem;
-        .YiliImg {scale: 1.35; padding-top: 1.5rem;}
-        .YiliImg:hover {border-radius: 0rem;}
-        .aboutDiv1 strong, .aboutDetails strong {font-size: 1.4rem;}
-    }
-    .Menu {padding: 2.5rem;}
-    .FeedBack {
-        padding: 2.25rem;
-        .clientReview strong {font-size: 1.65rem;}
-        .clientName {font-size: 2rem;}
-        .slide {padding: 2.75rem 0.8rem;}
-        .sliderBtn {
+    .footer1 {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        .contactDetails {
+            display: flex;
             justify-content: space-around;
         }
-    }
-    .Contact {
-        padding: 5rem 0.25rem;
-        .primary-button {width: 6.75em;}
-    }
-    footer {
-        .footerTitle {font-size: 2.65rem;}
-        .follow {font-size: 1.75rem;}
-        .social {
-            gap: 2.75rem;
-            a{font-size: 1rem;}
+        .links {
+            display: flex; 
+            justify-content: space-between; 
+            flex-direction: row; 
+            gap: 0.5rem;
         }
-        .email, .phone, .address {font-size: 1rem;}
-        .copyRight {font-size: 0.75rem;}
+    }
+    .footer2 {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
-@media (max-device-width: 430px){
+/* =======>> Tablet */
+@media (max-device-width: 800px){
+    * {text-align: center;}
+    section, footer {padding-left: 1.75rem; padding-right: 1.75rem;}
     header {
-        span {font-size: x-large;}
-        .logo {font-size: 1.75rem;}
+        padding: 0.75rem 3.5rem;
+        .logo p{font-size: 1rem;}
     }
-    
     header.sticky {
-        padding: 1rem 3rem;
-        background-color: #030512;
+        padding: 1.25rem 4.75rem;
+        background-color: rgba(255, 253, 248, 1);
+    }
+    .HomeSection {
+        padding-top: 6rem;
+        gap: 3rem;
+        flex-direction: column;
+        max-height: fit-content;
+        .mySwiper {max-width: 100%;}
+        .homeDetails {
+            .homeBtn {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+    .exploreCategories {
+        flex-direction: column;
+    }
+    .welcome {
+        flex-direction: column;
+        gap: 0.5rem;
+        .welcomeDetails {margin: 0rem auto;}
+        .welcomeForm {
+            margin: 0rem auto;
+            min-width: 90%;
+        }
     }
     
-    .Home {
-        .mainTitle {font-size: 3.25rem;}
-        .marginTitle {font-size: 2.25rem;}
-        .HomeDetails p{font-size: 1.25rem;}
-    }
-    .About {
-        padding: 2.5rem;
-        .YiliImg {
-            max-width: 50%;
-            max-height: 50%;
-            padding-top: 1.5rem; 
-            border-radius: 0rem;
-        }
-        .aboutDiv1 strong, .aboutDetails strong {font-size: 1.4rem;}
-        .aboutDiv1 p {padding-top: 4.5rem;}
-    }
-    .Menu {
-        padding: 2.5rem;
-    }
-    .FeedBack {
-        padding: 2.25rem;
-        .clientReview strong {font-size: 1.65rem;}
-        .clientName {font-size: 2rem;}
-        .slide {padding: 2.5rem 0.8rem;}
-        .sliderBtn {
+    .footer1 {
+        flex-direction: column-reverse;
+        gap: 2.5rem;
+        .contactDetails {
+            display: flex;
             justify-content: space-around;
         }
-    }
-    .Contact {
-        padding: 5rem 0.25rem;
-        .primary-button {width: 6.75em;}
-    }
-    footer {
-        .footerTitle {font-size: 2.65rem;}
-        .follow {font-size: 1.75rem;}
-        .social {
-            gap: 2.75rem;
-            a{font-size: 1rem;}
+        .links {
+            display: flex; 
+            justify-content: space-between; 
+            flex-direction: row; 
+            gap: 0.5rem;
         }
-        .email, .phone, .address {font-size: 1rem;}
-        .copyRight {font-size: 0.75rem;}
     }
-    .scrollBtn {
-        top: 85%;
-        left: 75%;
-        width: 45px;
-        height: 45px;
+    .footer2 {
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
-@media (max-device-width: 330px) {
-    .sidenav {
-        a {
-            font-size: 24px;
+/* ==============>> Mobile */
+/* =======>> Computer | | Laptop */
+@media only screen and (max-width: 600px){
+    header {
+        padding: 0.75rem 0rem 0.75rem 0.75rem;
+        .logo {
+            p {font-size: 1rem;}
+        }
+        .headerDetails {
+            img {width: 20%;}
         }
     }
-    .Home {
-        .mainTitle {font-size: 3rem;}
-        .marginTitle {font-size: 2rem;}
+    header.sticky {
+        padding: 1.25rem 1.75rem;
+        background-color: rgba(255, 253, 248, 1);
     }
-    .FeedBack {
-        padding: 2.25rem 0.25rem;
-        .slide {padding: 1.5rem 0.8rem;}
+    .footer1 {
+        .links{flex-direction: column; }
+        .contactDetails {
+            display: flex;
+            flex-direction: column;
+        }
+        iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .footer2 {
+        .CR {font-size: smaller;}
+    }
+}
+
+/* =======>> Phone */
+@media (max-device-width: 500px){
+    header {
+        padding: 0.75rem 0rem 0.75rem 0.75rem;
+        .logo {
+            p {font-size: 1rem;}
+        }
+        .headerDetails {
+            img {width: 20%;}
+        }
+    }
+    header.sticky {
+        padding: 1.25rem 0.75rem;
+        background-color: rgba(255, 253, 248, 1);
+    }
+    .footer1 {
+        .links {flex-direction: column;}
+        .contactDetails {
+            display: flex;
+            flex-direction: column;
+        }
+        iframe {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    .footer2 {
+        .CR {font-size: smaller;}
     }
 }
